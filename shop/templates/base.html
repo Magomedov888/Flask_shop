@@ -84,20 +84,20 @@
                   >
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="category.html">Shop Category</a>
+                      <a class="nav-link" href="{{ url_for('category') }}">Shop Category</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-product.html"
+                      <a class="nav-link" href="{{ url_for('single_product') }}"
                         >Product Details</a
                       >
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="checkout.html"
+                      <a class="nav-link" href="{{ url_for('checkout') }}"
                         >Product Checkout</a
                       >
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="confirmation.html"
+                      <a class="nav-link" href="{{ url_for('confirmation') }}"
                         >Confirmation</a
                       >
                     </li>
@@ -121,7 +121,7 @@
                       <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html"
+                      <a class="nav-link" href="{{ url_for('single_blog') }}"
                         >Blog Details</a
                       >
                     </li>
@@ -139,20 +139,20 @@
                   >
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="login.html">Login</a>
+                      <a class="nav-link" href="{{ url_for('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="register.html">Register</a>
+                      <a class="nav-link" href="{{ url_for('register') }}">Register</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="tracking-order.html"
+                      <a class="nav-link" href="{{ url_for('tracking_order') }}"
                         >Tracking</a
                       >
                     </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
+                  <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
                 </li>
               </ul>
 

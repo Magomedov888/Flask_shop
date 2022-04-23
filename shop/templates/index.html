@@ -1,5 +1,4 @@
-{% extends 'base.html' %} 
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <main class="site-main">
   <!--================ Hero banner start =================-->
   <section class="hero-banner">
@@ -7,7 +6,11 @@
       <div class="row no-gutters align-items-center pt-60px">
         <div class="col-5 d-none d-sm-block">
           <div class="hero-banner__img">
-            <img class="img-fluid" src="{{ url_for('static', filename='img/home/hero-banner.png') }}" alt="" />
+            <img
+              class="img-fluid"
+              src="{{ url_for('static', filename='img/home/hero-banner.png') }}"
+              alt=""
+            />
           </div>
         </div>
         <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
@@ -31,21 +34,33 @@
   <section class="section-margin mt-0">
     <div class="owl-carousel owl-theme hero-carousel">
       <div class="hero-carousel__slide">
-        <img src="{{ url_for('static', filename='img/home/hero-slide1.png') }}" alt="" class="img-fluid" />
+        <img
+          src="{{ url_for('static', filename='img/home/hero-slide1.png') }}"
+          alt=""
+          class="img-fluid"
+        />
         <a href="#" class="hero-carousel__slideOverlay">
           <h3>Wireless Headphone</h3>
           <p>Accessories Item</p>
         </a>
       </div>
       <div class="hero-carousel__slide">
-        <img src="{{ url_for('static', filename='img/home/hero-slide2.png') }}" alt="" class="img-fluid" />
+        <img
+          src="{{ url_for('static', filename='img/home/hero-slide2.png') }}"
+          alt=""
+          class="img-fluid"
+        />
         <a href="#" class="hero-carousel__slideOverlay">
           <h3>Wireless Headphone</h3>
           <p>Accessories Item</p>
         </a>
       </div>
       <div class="hero-carousel__slide">
-        <img src="{{ url_for('static', filename='img/home/hero-slide3.png') }}" alt="" class="img-fluid" />
+        <img
+          src="{{ url_for('static', filename='img/home/hero-slide3.png') }}"
+          alt=""
+          class="img-fluid"
+        />
         <a href="#" class="hero-carousel__slideOverlay">
           <h3>Wireless Headphone</h3>
           <p>Accessories Item</p>
@@ -66,7 +81,11 @@
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="card-img" src="{{ url_for('static', filename='img/product/product1.png') }}" alt="" />
+              <img
+                class="card-img"
+                src="{{ url_for('static', filename='img/product/product1.png') }}"
+                alt=""
+              />
               <ul class="card-product__imgOverlay">
                 <li>
                   <button><i class="ti-search"></i></button>
@@ -82,7 +101,7 @@
             <div class="card-body">
               <p>Accessories</p>
               <h4 class="card-product__title">
-                <a href="single-product.html">Quartz Belt Watch</a>
+                <a href="{{ url_for('single_product') }}">Quartz Belt Watch</a>
               </h4>
               <p class="card-product__price">$150.00</p>
             </div>
@@ -91,7 +110,11 @@
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="card-img" src="{{ url_for('static', filename='img/product/product2.png') }}" alt="" />
+              <img
+                class="card-img"
+                src="{{ url_for('static', filename='img/product/product2.png') }}"
+                alt=""
+              />
               <ul class="card-product__imgOverlay">
                 <li>
                   <button><i class="ti-search"></i></button>
@@ -107,7 +130,7 @@
             <div class="card-body">
               <p>Beauty</p>
               <h4 class="card-product__title">
-                <a href="single-product.html">Women Freshwash</a>
+                <a href="{{ url_for('single_product') }}">Women Freshwash</a>
               </h4>
               <p class="card-product__price">$150.00</p>
             </div>
@@ -116,7 +139,11 @@
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="card-img" src="{{ url_for('static', filename='img/product/product3.png') }}" alt="" />
+              <img
+                class="card-img"
+                src="{{ url_for('static', filename='img/product/product3.png') }}"
+                alt=""
+              />
               <ul class="card-product__imgOverlay">
                 <li>
                   <button><i class="ti-search"></i></button>
@@ -132,7 +159,7 @@
             <div class="card-body">
               <p>Decor</p>
               <h4 class="card-product__title">
-                <a href="single-product.html">Room Flash Light</a>
+                <a href="{{ url_for('single_product') }}">Room Flash Light</a>
               </h4>
               <p class="card-product__price">$150.00</p>
             </div>
@@ -141,7 +168,11 @@
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="card-img" src="{{ url_for('static', filename='img/product/product4.png') }}" alt="" />
+              <img
+                class="card-img"
+                src="{{ url_for('static', filename='img/product/product4.png') }}"
+                alt=""
+              />
               <ul class="card-product__imgOverlay">
                 <li>
                   <button><i class="ti-search"></i></button>
@@ -157,7 +188,7 @@
             <div class="card-body">
               <p>Decor</p>
               <h4 class="card-product__title">
-                <a href="single-product.html">Room Flash Light</a>
+                <a href="{{ url_for('single_product') }}">Room Flash Light</a>
               </h4>
               <p class="card-product__price">$150.00</p>
             </div>
@@ -166,7 +197,11 @@
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="card-img" src="{{ url_for('static', filename='img/product/product5.png') }}" alt="" />
+              <img
+                class="card-img"
+                src="{{ url_for('static', filename='img/product/product5.png') }}"
+                alt=""
+              />
               <ul class="card-product__imgOverlay">
                 <li>
                   <button><i class="ti-search"></i></button>
@@ -182,7 +217,7 @@
             <div class="card-body">
               <p>Accessories</p>
               <h4 class="card-product__title">
-                <a href="single-product.html">Man Office Bag</a>
+                <a href="{{ url_for('single_product') }}">Man Office Bag</a>
               </h4>
               <p class="card-product__price">$150.00</p>
             </div>
@@ -191,7 +226,11 @@
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="card-img" src="{{ url_for('static', filename='img/product/product6.png') }}" alt="" />
+              <img
+                class="card-img"
+                src="{{ url_for('static', filename='img/product/product6.png') }}"
+                alt=""
+              />
               <ul class="card-product__imgOverlay">
                 <li>
                   <button><i class="ti-search"></i></button>
@@ -207,7 +246,7 @@
             <div class="card-body">
               <p>Kids Toy</p>
               <h4 class="card-product__title">
-                <a href="single-product.html">Charging Car</a>
+                <a href="{{ url_for('single_product') }}">Charging Car</a>
               </h4>
               <p class="card-product__price">$150.00</p>
             </div>
@@ -216,7 +255,11 @@
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="card-img" src="{{ url_for('static', filename='img/product/product7.png') }}" alt="" />
+              <img
+                class="card-img"
+                src="{{ url_for('static', filename='img/product/product7.png') }}"
+                alt=""
+              />
               <ul class="card-product__imgOverlay">
                 <li>
                   <button><i class="ti-search"></i></button>
@@ -232,7 +275,7 @@
             <div class="card-body">
               <p>Accessories</p>
               <h4 class="card-product__title">
-                <a href="single-product.html">Blutooth Speaker</a>
+                <a href="{{ url_for('single_product') }}">Blutooth Speaker</a>
               </h4>
               <p class="card-product__price">$150.00</p>
             </div>
@@ -241,7 +284,11 @@
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card text-center card-product">
             <div class="card-product__img">
-              <img class="card-img" src="{{ url_for('static', filename='img/product/product8.png') }}" alt="" />
+              <img
+                class="card-img"
+                src="{{ url_for('static', filename='img/product/product8.png') }}"
+                alt=""
+              />
               <ul class="card-product__imgOverlay">
                 <li>
                   <button><i class="ti-search"></i></button>
@@ -299,7 +346,11 @@
       <div class="owl-carousel owl-theme" id="bestSellerCarousel">
         <div class="card text-center card-product">
           <div class="card-product__img">
-            <img class="img-fluid" src="{{ url_for('static', filename='img/product/product1.png') }}" alt="" />
+            <img
+              class="img-fluid"
+              src="{{ url_for('static', filename='img/product/product1.png') }}"
+              alt=""
+            />
             <ul class="card-product__imgOverlay">
               <li>
                 <button><i class="ti-search"></i></button>
@@ -315,7 +366,7 @@
           <div class="card-body">
             <p>Accessories</p>
             <h4 class="card-product__title">
-              <a href="single-product.html">Quartz Belt Watch</a>
+              <a href="{{ url_for('single_product') }}">Quartz Belt Watch</a>
             </h4>
             <p class="card-product__price">$150.00</p>
           </div>
@@ -323,7 +374,11 @@
 
         <div class="card text-center card-product">
           <div class="card-product__img">
-            <img class="img-fluid" src="{{ url_for('static', filename='img/product/product2.png') }}" alt="" />
+            <img
+              class="img-fluid"
+              src="{{ url_for('static', filename='img/product/product2.png') }}"
+              alt=""
+            />
             <ul class="card-product__imgOverlay">
               <li>
                 <button><i class="ti-search"></i></button>
@@ -339,7 +394,7 @@
           <div class="card-body">
             <p>Beauty</p>
             <h4 class="card-product__title">
-              <a href="single-product.html">Women Freshwash</a>
+              <a href="{{ url_for('single_product') }}">Women Freshwash</a>
             </h4>
             <p class="card-product__price">$150.00</p>
           </div>
@@ -347,7 +402,11 @@
 
         <div class="card text-center card-product">
           <div class="card-product__img">
-            <img class="img-fluid" src="{{ url_for('static', filename='img/product/product3.png') }}" alt="" />
+            <img
+              class="img-fluid"
+              src="{{ url_for('static', filename='img/product/product3.png') }}"
+              alt=""
+            />
             <ul class="card-product__imgOverlay">
               <li>
                 <button><i class="ti-search"></i></button>
@@ -363,7 +422,7 @@
           <div class="card-body">
             <p>Decor</p>
             <h4 class="card-product__title">
-              <a href="single-product.html">Room Flash Light</a>
+              <a href="{{ url_for('single_product') }}">Room Flash Light</a>
             </h4>
             <p class="card-product__price">$150.00</p>
           </div>
@@ -371,7 +430,11 @@
 
         <div class="card text-center card-product">
           <div class="card-product__img">
-            <img class="img-fluid" src="{{ url_for('static', filename='img/product/product4.png') }}" alt="" />
+            <img
+              class="img-fluid"
+              src="{{ url_for('static', filename='img/product/product4.png') }}"
+              alt=""
+            />
             <ul class="card-product__imgOverlay">
               <li>
                 <button><i class="ti-search"></i></button>
@@ -387,7 +450,7 @@
           <div class="card-body">
             <p>Decor</p>
             <h4 class="card-product__title">
-              <a href="single-product.html">Room Flash Light</a>
+              <a href="{{ url_for('single_product') }}">Room Flash Light</a>
             </h4>
             <p class="card-product__price">$150.00</p>
           </div>
@@ -395,7 +458,11 @@
 
         <div class="card text-center card-product">
           <div class="card-product__img">
-            <img class="img-fluid" src="{{ url_for('static', filename='img/product/product1.png') }}" alt="" />
+            <img
+              class="img-fluid"
+              src="{{ url_for('static', filename='img/product/product1.png') }}"
+              alt=""
+            />
             <ul class="card-product__imgOverlay">
               <li>
                 <button><i class="ti-search"></i></button>
@@ -411,7 +478,7 @@
           <div class="card-body">
             <p>Accessories</p>
             <h4 class="card-product__title">
-              <a href="single-product.html">Quartz Belt Watch</a>
+              <a href="{{ url_for('single_product') }}">Quartz Belt Watch</a>
             </h4>
             <p class="card-product__price">$150.00</p>
           </div>
@@ -419,7 +486,11 @@
 
         <div class="card text-center card-product">
           <div class="card-product__img">
-            <img class="img-fluid" src="{{ url_for('static', filename='img/product/product2.png') }}" alt="" />
+            <img
+              class="img-fluid"
+              src="{{ url_for('static', filename='img/product/product2.png') }}"
+              alt=""
+            />
             <ul class="card-product__imgOverlay">
               <li>
                 <button><i class="ti-search"></i></button>
@@ -435,7 +506,7 @@
           <div class="card-body">
             <p>Beauty</p>
             <h4 class="card-product__title">
-              <a href="single-product.html">Women Freshwash</a>
+              <a href="{{ url_for('single_product') }}">Women Freshwash</a>
             </h4>
             <p class="card-product__price">$150.00</p>
           </div>
@@ -443,7 +514,11 @@
 
         <div class="card text-center card-product">
           <div class="card-product__img">
-            <img class="img-fluid" src="{{ url_for('static', filename='img/product/product3.png') }}" alt="" />
+            <img
+              class="img-fluid"
+              src="{{ url_for('static', filename='img/product/product3.png') }}"
+              alt=""
+            />
             <ul class="card-product__imgOverlay">
               <li>
                 <button><i class="ti-search"></i></button>
@@ -459,7 +534,7 @@
           <div class="card-body">
             <p>Decor</p>
             <h4 class="card-product__title">
-              <a href="single-product.html">Room Flash Light</a>
+              <a href="{{ url_for('single_product') }}">Room Flash Light</a>
             </h4>
             <p class="card-product__price">$150.00</p>
           </div>
@@ -467,7 +542,11 @@
 
         <div class="card text-center card-product">
           <div class="card-product__img">
-            <img class="img-fluid" src="{{ url_for('static', filename='img/product/product4.png') }}" alt="" />
+            <img
+              class="img-fluid"
+              src="{{ url_for('static', filename='img/product/product4.png') }}"
+              alt=""
+            />
             <ul class="card-product__imgOverlay">
               <li>
                 <button><i class="ti-search"></i></button>
@@ -483,7 +562,7 @@
           <div class="card-body">
             <p>Decor</p>
             <h4 class="card-product__title">
-              <a href="single-product.html">Room Flash Light</a>
+              <a href="{{ url_for('single_product') }}">Room Flash Light</a>
             </h4>
             <p class="card-product__price">$150.00</p>
           </div>
@@ -505,7 +584,11 @@
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card card-blog">
             <div class="card-blog__img">
-              <img class="card-img rounded-0" src="{{ url_for('static', filename='img/blog/blog1.png') }}" alt="" />
+              <img
+                class="card-img rounded-0"
+                src="{{ url_for('static', filename='img/blog/blog1.png') }}"
+                alt=""
+              />
             </div>
             <div class="card-body">
               <ul class="card-blog__info">
@@ -515,7 +598,7 @@
                 </li>
               </ul>
               <h4 class="card-blog__title">
-                <a href="single-blog.html"
+                <a href="{{ url_for('single_blog') }}"
                   >The Richland Center Shooping News and weekly shooper</a
                 >
               </h4>
@@ -533,7 +616,11 @@
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card card-blog">
             <div class="card-blog__img">
-              <img class="card-img rounded-0" src="{{ url_for('static', filename='img/blog/blog2.png') }}" alt="" />
+              <img
+                class="card-img rounded-0"
+                src="{{ url_for('static', filename='img/blog/blog2.png') }}"
+                alt=""
+              />
             </div>
             <div class="card-body">
               <ul class="card-blog__info">
@@ -543,7 +630,7 @@
                 </li>
               </ul>
               <h4 class="card-blog__title">
-                <a href="single-blog.html"
+                <a href="{{ url_for('single_blog') }}"
                   >The Shopping News also offers top-quality printing
                   services</a
                 >
@@ -562,7 +649,11 @@
         <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
           <div class="card card-blog">
             <div class="card-blog__img">
-              <img class="card-img rounded-0" src="{{ url_for('static', filename='img/blog/blog3.png') }}" alt="" />
+              <img
+                class="card-img rounded-0"
+                src="{{ url_for('static', filename='img/blog/blog3.png') }}"
+                alt=""
+              />
             </div>
             <div class="card-body">
               <ul class="card-blog__info">
@@ -572,7 +663,7 @@
                 </li>
               </ul>
               <h4 class="card-blog__title">
-                <a href="single-blog.html"
+                <a href="{{ url_for('single_blog') }}"
                   >Professional design staff and efficient equipment you’ll find
                   we offer</a
                 >
