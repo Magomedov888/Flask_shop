@@ -78,12 +78,13 @@
         <h2>Trending <span class="section-intro__style">Product</span></h2>
       </div>
       <div class="row">
+        {% for product in products %}
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card text-center card-product">
             <div class="card-product__img">
               <img
                 class="card-img"
-                src="{{ url_for('static', filename='img/product/product1.png') }}"
+                src="{{ url_for('static', filename=product.image) }}"
                 alt=""
               />
               <ul class="card-product__imgOverlay">
@@ -99,49 +100,22 @@
               </ul>
             </div>
             <div class="card-body">
-              <p>Accessories</p>
+              <p>{{ product.category }}</p>
               <h4 class="card-product__title">
-                <a href="{{ url_for('single_product') }}">Quartz Belt Watch</a>
+                <a href="{{ url_for('single_product') }}">{{ product.title }}</a>
               </h4>
-              <p class="card-product__price">$150.00</p>
+              <p class="card-product__price">${{ product.price }}</p>
             </div>
           </div>
         </div>
+        {% endfor %}
+        
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card text-center card-product">
             <div class="card-product__img">
               <img
                 class="card-img"
-                src="{{ url_for('static', filename='img/product/product2.png') }}"
-                alt=""
-              />
-              <ul class="card-product__imgOverlay">
-                <li>
-                  <button><i class="ti-search"></i></button>
-                </li>
-                <li>
-                  <button><i class="ti-shopping-cart"></i></button>
-                </li>
-                <li>
-                  <button><i class="ti-heart"></i></button>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <p>Beauty</p>
-              <h4 class="card-product__title">
-                <a href="{{ url_for('single_product') }}">Women Freshwash</a>
-              </h4>
-              <p class="card-product__price">$150.00</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card text-center card-product">
-            <div class="card-product__img">
-              <img
-                class="card-img"
-                src="{{ url_for('static', filename='img/product/product3.png') }}"
+                src="{{ url_for('static', filename='img/product/' + 'product3.png') }}"
                 alt=""
               />
               <ul class="card-product__imgOverlay">
