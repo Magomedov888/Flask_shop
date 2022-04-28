@@ -75,7 +75,7 @@ def add_product():
         filename = secure_filename(file_name.filename)
         file_name.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         p = Product(title=f.get('title'), price=f.get('price'), category=f.get('category'), availibility=f.get('availibility'),
-                    description=f.get('description'), image=file_name)
+                    description=f.get('description'), image=file_name.filename)
         db.session.add(p)
         db.session.commit()
     return render_template('add_product.html')
