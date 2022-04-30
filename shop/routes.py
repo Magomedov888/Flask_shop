@@ -1,4 +1,3 @@
-import os
 from werkzeug.utils import secure_filename
 from shop import app
 from flask import render_template, request
@@ -71,11 +70,13 @@ def confirmation():
 def add_product():
     if request.method == "POST":
         f = request.form
-        file_name = request.files.get('image')
-        filename = secure_filename(file_name.filename)
-        file_name.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        image = request.files.get('image')
+        if image:
+            file_name = image.filename
+            image = Image.open(image)
+            image.save('shop/static/img/product/' + file_name)
         p = Product(title=f.get('title'), price=f.get('price'), category=f.get('category'), availibility=f.get('availibility'),
-                    description=f.get('description'), image=file_name.filename)
+                    description=f.get('description'), image=file_name)
         db.session.add(p)
         db.session.commit()
     return render_template('add_product.html')
