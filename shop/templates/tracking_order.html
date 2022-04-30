@@ -4,13 +4,9 @@
   <div class="container h-100">
     <div class="blog-banner">
       <div class="text-center">
-        <h1>Order Tracking</h1>
+        <h1>Отслеживание заказа</h1>
         <nav aria-label="breadcrumb" class="banner-breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">
-              Order Tracking
-            </li>
           </ol>
         </nav>
       </div>
@@ -24,9 +20,8 @@
   <div class="container">
     <div class="tracking_box_inner">
       <p>
-        To track your order please enter your Order ID in the box below and
-        press the "Track" button. This was given to you on your receipt and in
-        the confirmation email you should have received.
+        Чтобы отследить свой заказ, введите идентификатор заказа в поле ниже и нажмите кнопку «Отследить». 
+        Это было указано в квитанции и в письме с подтверждением, которое вы должны были получить.
       </p>
       <form
         class="row tracking_form"
@@ -40,7 +35,7 @@
             class="form-control"
             id="order"
             name="order"
-            placeholder="Order ID"
+            placeholder="Номер заказа"
             onfocus="this.placeholder = ''"
             onblur="this.placeholder = 'Order ID'"
           />
@@ -51,14 +46,14 @@
             class="form-control"
             id="email"
             name="email"
-            placeholder="Billing Email Address"
+            placeholder="Платежный адрес электронной почты"
             onfocus="this.placeholder = ''"
             onblur="this.placeholder = 'Billing Email Address'"
           />
         </div>
         <div class="col-md-12 form-group">
           <button type="submit" value="submit" class="button button-tracking">
-            Track Order
+            Отследить
           </button>
         </div>
       </form>
