@@ -1,9 +1,9 @@
 from werkzeug.utils import secure_filename
 from shop import app
-from flask import render_template, request
-from shop.models import Product, db
+from flask import render_template, request, redirect, url_for
+from shop.models import Product, db, User
 from PIL import Image
-
+from flask_login import login_user, logout_user, current_user
 
 @app.route('/')
 def index():
@@ -68,7 +68,7 @@ def confirmation():
 
 @app.route('/add_product', methods=['GET', 'POST'])
 def add_product():
-    if request.method == "POST":
+    if request.method == 'POST':
         f = request.form
         image = request.files.get('image')
         if image:
@@ -80,3 +80,22 @@ def add_product():
         db.session.add(p)
         db.session.commit()
     return render_template('add_product.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    if request.method == 'POST':
+        user = User.query.filter_by(email=request.form.get('email')).first()
+        if user and user.password == request.form.get('password'):
+            login_user(user)
+        return redirect(url_for('index'))
+    return render_template('login.html')
+
+
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
