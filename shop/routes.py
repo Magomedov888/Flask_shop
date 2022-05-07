@@ -92,4 +92,4 @@ def logout():
 @app.route('/products/<int:product_id>')
 def product_detail(product_id):
     product_id = Product.query.get(product_id)
-    return render_template('product_detail.html', product=product)
+    return render_template('product_detail.html', product=product_id)
