@@ -5,6 +5,7 @@ from shop.models import Product, db, User
 from PIL import Image
 from flask_login import login_user, logout_user, current_user
 
+
 @app.route('/')
 def index():
     products = Product.query.all()
