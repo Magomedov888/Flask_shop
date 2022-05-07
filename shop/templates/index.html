@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 <main class="site-main">
   <!--================ Hero banner start =================-->
   <section class="hero-banner">
@@ -96,7 +97,7 @@
             <div class="card-body">
               <p>{{ product.category }}</p>
               <h4 class="card-product__title">
-                <a href="{{ url_for('single_product') }}">{{ product.title }}</a>
+                <a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.title }}</a>
               </h4>
               <p class="card-product__price">${{ product.price }}</p>
             </div>
@@ -160,7 +161,7 @@
           <div class="card-body">
             <p>{{ product.category }}</p>
             <h4 class="card-product__title">
-              <a href="{{ url_for('single_product') }}">{{ product.title }}</a>
+              <a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.title }}</a>
             </h4>
             <p class="card-product__price">${{ product.price }}</p>
           </div>

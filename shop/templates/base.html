@@ -84,7 +84,7 @@
                       <a class="nav-link" href="{{ url_for('category') }}">Категория Товара</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url_for('single_product') }}"
+                      <a class="nav-link" href="{{ url_for('product_detail', product_id=product.id) }}"
                         >Товары</a
                       >
                     </li>
@@ -132,8 +132,7 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    >Войти</a
-                  >
+                    >Войти</a>
                   <ul class="nav-item submenu dropdown">
                     {% if current_user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Выйти</a></li>

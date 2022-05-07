@@ -26,11 +26,6 @@ def cart():
     return render_template('cart.html')
 
 
-@app.route('/single_product')
-def single_product():
-    return render_template('single_product.html')
-
-
 @app.route('/category')
 def category():
     return render_template('category.html')
@@ -93,3 +88,8 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route('/products/<int:product_id>')
+def product_detail(product_id):
+    product_id = Product.query.get(product_id)
+    return render_template('product_detail.html', product=product)
