@@ -4,7 +4,7 @@ from flask import render_template, request, redirect, url_for
 from shop.models import Product, db, User
 from PIL import Image
 from flask_login import login_user, logout_user, current_user
-
+from shop.forms import RegistrationForm
 
 @app.route('/')
 def index():
@@ -42,10 +42,6 @@ def tracking_order():
     return render_template('tracking_order.html')
 
 
-@app.route('/register')
-def register():
-    return render_template('register.html')
-
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
@@ -70,6 +66,19 @@ def add_product():
         db.session.add(p)
         db.session.commit()
     return render_template('add_product.html')
+
+@app.route('/registration', methods=['GET', 'POST'])
+def registration():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(email=form.email.data, password=form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        # flash('Регистрация прошла успешно!', 'success' )
+        return redirect(url_for('login'))
+    return render_template('registration.html', form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
