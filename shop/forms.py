@@ -1,8 +1,9 @@
 from email import message
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError, Length
 import email_validator
+from flask_wtf.file import FileField, FileAllowed
 from shop.models import User
 
 
@@ -17,3 +18,9 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError('Такой email уже существует!')
+
+class PostForm(FlaskForm):
+    title = StringField('Заголовок', validators=[DataRequired()])
+    content = TextAreaField('Контент', validators=[DataRequired()])
+    image = FileField('Картинка поста', validators=[FileAllowed(['jpg', 'png'])])
+    submit = SubmitField('Создать пост')

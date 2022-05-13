@@ -1,25 +1,15 @@
 from werkzeug.utils import secure_filename
 from shop import app
-from flask import render_template, request, redirect, url_for
-from shop.models import Product, db, User
+from flask import render_template, request, redirect, url_for, flash
+from shop.models import Product, db, User, Post
 from PIL import Image
-from flask_login import login_user, logout_user, current_user
-from shop.forms import RegistrationForm
+from flask_login import login_required, login_user, logout_user, current_user
+from shop.forms import PostForm, RegistrationForm
 
 @app.route('/')
 def index():
     products = Product.query.all()
     return render_template('index.html', products=products)
-
-
-@app.route('/blog')
-def blog():
-    return render_template('blog.html')
-
-
-@app.route('/single_blog')
-def single_blog():
-    return render_template('single_blog.html')
 
 
 @app.route('/cart')
@@ -76,7 +66,7 @@ def registration():
         user = User(email=form.email.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
-        # flash('Регистрация прошла успешно!', 'success' )
+        flash('Регистрация прошла успешно!', 'success' )
         return redirect(url_for('login'))
     return render_template('registration.html', form=form)
 
@@ -103,3 +93,34 @@ def logout():
 def product_detail(product_id):
     product_id = Product.query.get(product_id)
     return render_template('product_detail.html', product=product_id)
+
+
+@app.route('/blog')
+def blog():
+    posts = Post.query.all()
+    return render_template('blog.html', posts=posts)
+
+
+@app.route('/new_post', methods=['POST', 'GET'])
+@login_required
+def new_post():
+    form = PostForm()
+    if form.validate_on_submit():
+        image = request.files.get('image')
+        if image:
+            file_name = image.filename
+            image = Image.open(image)
+            image.save('shop/static/img/blog/' + file_name)
+            post = Post(title=form.title.data,
+                        content=form.content.data, author=current_user, image=file_name)
+            db.session.add(post)
+            db.session.commit()
+            flash('Пост был создан!', 'success')
+            return redirect(url_for('blog'))
+    return render_template('new_post.html', form=form)
+
+
+@app.route('/blog/<int:post_id>')
+def post_detail(post_id):
+    post = Post.query.get(post_id)
+    return render_template('post_detail.html', post=post)

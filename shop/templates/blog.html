@@ -1,31 +1,28 @@
 {% extends 'base.html' %} 
 {% block content %}
-
 <!--================Blog Area =================-->
 <section class="blog_area">
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
         <div class="blog_left_sidebar">
+          {% for post in posts %}
           <article class="row blog_item">
             <div class="col-md-3">
               <div class="blog_info text-right">
                 <ul class="blog_meta list">
                   <li>
-                    <a href="#"
-                      >Mark wiens
+                    <a href="#">{{ post.author }}
                       <i class="lnr lnr-user"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="#"
-                      >12 Dec, 2017
+                    <a href="#">{{ post.date_posted }}
                       <i class="lnr lnr-calendar-full"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="#"
-                      >06 Comments
+                    <a href="#">06 Comments
                       <i class="lnr lnr-bubble"></i>
                     </a>
                   </li>
@@ -35,28 +32,24 @@
             <div class="col-md-9">
               <div class="blog_post">
                 <img
-                  src="{{ url_for('static', filename='img/blog/main-blog/m-blog-1.jpg') }}"
+                  src="{{ url_for('static', filename='img/blog/' + post.image) }}"
                   alt=""
                 />
                 <div class="blog_details">
-                  <a href="{{ url_for('single_blog') }}">
-                    <h2>Astronomy Binoculars A Great Alternative</h2>
+                  <a href="{{ url_for('post_detail', post_id=post.id) }}">
+                    <h2>{{ post.title }}</h2>
                   </a>
-                  <p>
-                    MCSE boot camps have its supporters and its detractors. Some
-                    people do not understand why you should have to spend money
-                    on boot camp when you can get the MCSE study materials
-                    yourself at a fraction.
-                  </p>
+                  <p>{{ post.content[:300] }} ...</p>
                   <a
                     class="button button-blog"
-                    href="{{ url_for('single_blog') }}"
+                    href="{{ url_for('post_detail', post_id=post.id) }}"
                     >View More</a
                   >
                 </div>
               </div>
             </div>
           </article>
+          {% endfor %}
           <nav class="blog-pagination justify-content-center d-flex">
             <ul class="pagination">
               <li class="page-item">
