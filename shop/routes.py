@@ -97,7 +97,8 @@ def product_detail(product_id):
 
 @app.route('/blog')
 def blog():
-    posts = Post.query.all()
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=2)
     return render_template('blog.html', posts=posts)
 
 

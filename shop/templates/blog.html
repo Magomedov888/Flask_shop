@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-lg-8">
         <div class="blog_left_sidebar">
-          {% for post in posts %}
+          {% for post in posts.items %}
           <article class="row blog_item">
             <div class="col-md-3">
               <div class="blog_info text-right">
@@ -52,35 +52,21 @@
           {% endfor %}
           <nav class="blog-pagination justify-content-center d-flex">
             <ul class="pagination">
-              <li class="page-item">
-                <a href="#" class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">
-                    <span class="lnr lnr-chevron-left"></span>
-                  </span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">01</a>
-              </li>
-              <li class="page-item active">
-                <a href="#" class="page-link">02</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">03</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">04</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">09</a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link" aria-label="Next">
-                  <span aria-hidden="true">
-                    <span class="lnr lnr-chevron-right"></span>
-                  </span>
-                </a>
-              </li>
+                {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                {% if page_num %}
+                {% if page_num == posts.page %}
+                <li class="page-item active">
+                    <a href="{{url_for('blog', page=page_num)}}" class="page-link">{{page_num}}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a href="{{url_for('blog', page=page_num)}}" class="page-link">{{page_num}}</a>
+                </li>
+                {% endif %}
+                {% else %}
+                ...    
+                {% endif %}
+                {% endfor %}
             </ul>
           </nav>
         </div>

@@ -103,12 +103,8 @@
                           aria-expanded="false" > Администратор</a>
                     <ul class="dropdown-menu">  
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('add_product') }}"> Добавить Товар</a></li>
-                    {% endif %} 
+                    {% endif %}
                     {% if current_user.is_authenticated %}
-                    <li class="nav-item submenu dropdown">
-                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" 
-                          aria-expanded="false" > Пользователь</a>
-                    <ul class="dropdown-menu">  
                     <li class="nav-item"><a class="nav-link" href="#">{{ current_user.email }}</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('new_post') }}"> Новый пост</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}"> Выйти</a></li>
@@ -116,6 +112,8 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('registration') }}"> Регистрация</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}"> Войти</a></li>
                     {% endif %}
+                    </li>
+                    </ul>
                   </ul>
                 </li>
               </ul>
