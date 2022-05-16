@@ -44,7 +44,7 @@
 
 
 				<div class="comments-area">
-					<h4>{{ comments | length }} Comments</h4>
+					<h4>{{ comments | length }} Комментарий</h4>
 					{% for comment in comments %}
 					<div class="comment-list">
 						<div class="single-comment justify-content-between d-flex">
@@ -60,35 +60,35 @@
 								</div>
 							</div>
 							<div class="reply-btn">
-								<a href="#" class="btn-reply text-uppercase">reply</a>
+								<a href="#" class="btn-reply text-uppercase">ОТВЕТИТЬ</a>
 							</div>
 						</div>
 					</div>
 					{% endfor %}
 					<div class="comment-form">
-						<h4>Leave a Reply</h4>
+						<h4>Оставить комментарий</h4>
 						<form action="" method="POST">
 							<div class="form-group form-inline">
 								<div class="form-group col-lg-6 col-md-6 name">
-									<input type="text" class="form-control" id="name" name="name" placeholder="Enter Name"
-										onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
+									<input type="text" class="form-control" id="name" name="name" placeholder="Введите имя"
+										onfocus="this.placeholder = ''" onblur="this.placeholder = 'Введите имя'">
 								</div>
 								<div class="form-group col-lg-6 col-md-6 email">
 									<input type="email" class="form-control" name="email" id="email"
-										placeholder="Enter email address" onfocus="this.placeholder = ''"
-										onblur="this.placeholder = 'Enter email address'">
+										placeholder="Введите адрес электронной почты" onfocus="this.placeholder = ''"
+										onblur="this.placeholder = 'Введите адрес электронной почты'">
 								</div>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
+								<input type="text" class="form-control" id="subject" name="subject" placeholder="Тема"
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Тема'">
 							</div>
 							<div class="form-group">
-								<textarea class="form-control mb-10" rows="5" name="message" name="message" placeholder="Messege"
-									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'"
+								<textarea class="form-control mb-10" rows="5" name="message" name="message" placeholder="Текст"
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Текст'"
 									required=""></textarea>
 							</div>
-							<button>Post Comment</button>
+							<button>Оставить комментарий</button>
 						</form>
 					</div>
 				</div>
