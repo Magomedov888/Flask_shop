@@ -1,7 +1,7 @@
 from werkzeug.utils import secure_filename
 from shop import app
 from flask import render_template, request, redirect, url_for, flash
-from shop.models import Product, db, User, Post
+from shop.models import Product, db, User, Post, Comment
 from PIL import Image
 from flask_login import login_required, login_user, logout_user, current_user
 from shop.forms import PostForm, RegistrationForm
@@ -79,7 +79,7 @@ def login():
         user = User.query.filter_by(email=request.form.get('email')).first()
         if user and user.password == request.form.get('password'):
             login_user(user)
-        return redirect(url_for('index'))
+            return redirect(url_for('index'))
     return render_template('login.html')
 
 
@@ -121,7 +121,14 @@ def new_post():
     return render_template('new_post.html', form=form)
 
 
-@app.route('/blog/<int:post_id>')
+@app.route('/blog/<int:post_id>', methods=['GET', 'POST'])
 def post_detail(post_id):
     post = Post.query.get(post_id)
-    return render_template('post_detail.html', post=post)
+    comments = Comment.query.order_by(Comment.date_posted.desc()).all()
+    if request.method == 'POST':
+        comment = Comment(name=request.form.get('name'), subject=request.form.get('subject'), 
+                            email=request.form.get('email'), message=request.form.get('message'), post=post)
+        db.session.add(comment)
+        db.session.commit()
+        flash('Комментарий добавлен!', 'seccess')
+    return render_template('post_detail.html', post=post, comments=comments)

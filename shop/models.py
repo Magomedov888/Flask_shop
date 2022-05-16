@@ -39,6 +39,23 @@ class Post(db.Model):
     date_posted = db.Column(db.DateTime(), nullable=False, default=datetime.now)
     image = db.Column(db.String(), nullable=False)
     user_id = db.Column(db.Integer(), db.ForeignKey('users.id'), nullable=False)
+    comments = db.relationship('Comment', backref='post', lazy=True)
 
     def __repr__(self) -> str:
         return self.title
+
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    subject = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(), nullable=False)
+    date_posted = db.Column(
+        db.DateTime(), nullable=False, default=datetime.now)
+    message = db.Column(db.String(), nullable=False)
+    post_id = db.Column(db.Integer(), db.ForeignKey(
+        'posts.id'), nullable=False)
+
+    def __repr__(self) -> str:
+        return self.subject
