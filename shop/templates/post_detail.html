@@ -39,7 +39,12 @@
 						<p class="excert">
 							{{post.content}}
 						</p>
-					</div>
+						{% if current_user.is_authenticated %}
+						<div class="blog_details">
+							<a href="/blog/{{ post.id }}/delete" class="btn btn-danger">Удалить</a>
+							<a href="/blog/{{ post.id }}/update" class="btn btn-success">Редактировать</a>
+						</div>
+						{% endif %}
 				</div>
 
 

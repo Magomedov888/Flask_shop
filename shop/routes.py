@@ -17,9 +17,10 @@ def cart():
     return render_template('cart.html')
 
 
-@app.route('/category')
+@app.route('/products')
 def category():
-    return render_template('category.html')
+    products = Product.query.all()
+    return render_template('category.html', products=products)
 
 
 @app.route('/checkout')
@@ -132,6 +133,16 @@ def post_detail(post_id):
         db.session.commit()
         flash('Комментарий добавлен!', 'seccess')
     return render_template('post_detail.html', post=post, comments=comments)
+
+@app.route('/blog/<int:post_id>/delete')
+def post_delete(post_id):
+    post = Post.query.get(post_id)
+    try:
+        db.session.delete(post)
+        db.session.commit()
+        return redirect('/blog')
+    except:
+        return "При удалении произошла ошибка"
 
 
 @app.route('/products/<int:product_id>/buy', methods=['GET', 'POST'])
